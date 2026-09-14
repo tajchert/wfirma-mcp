@@ -160,3 +160,7 @@ uv run python scripts/smoke_live.py --env-file /absolute/path/to/.env
 ```
 
 Design and implementation notes are in `docs/`.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

@@ -7,6 +7,8 @@ name = "wfirma-mcp"
 version = "0.3.0"
 description = "Local MCP server for documented wFirma browser accounting reads"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 dependencies = ["mcp>=2.2,<3", "httpx>=0.28,<0.29", "beautifulsoup4>=4.13,<5", "python-dotenv>=1.1,<2", "defusedxml>=0.7,<1", "keyring>=25.6,<26; sys_platform == 'darwin'"]
 
@@ -27,4 +29,4 @@ line-length = 100
 packages = ["src/wfirma_mcp"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/", "tests/", "scripts/", "docs/", "README.md", "WFIRMA_API.md", "pyproject.toml", "uv.lock", ".env.example", ".gitignore"]
+include = ["src/", "tests/", "scripts/", "docs/", "README.md", "WFIRMA_API.md", "LICENSE", "pyproject.toml", "uv.lock", ".env.example", ".gitignore"]
