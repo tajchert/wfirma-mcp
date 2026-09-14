@@ -19,14 +19,14 @@ def test_private_exports_and_credentials_are_ignored_by_git():
         ".private/example.html",
         "example.har",
     ]
+    # Binary NUL-separated paths avoid Windows newline conversion and Git quoting.
     result = subprocess.run(
-        ["git", "check-ignore", "--stdin"],
-        input="\n".join(paths),
-        text=True,
+        ["git", "check-ignore", "--stdin", "-z"],
+        input=("\0".join(paths) + "\0").encode("utf-8"),
         capture_output=True,
         check=True,
     )
-    assert set(result.stdout.splitlines()) == set(paths)
+    assert set(result.stdout.decode("utf-8").split("\0")[:-1]) == set(paths)
 
 
 def test_credentials_require_explicit_file_and_environment_overrides_it(tmp_path, monkeypatch):
